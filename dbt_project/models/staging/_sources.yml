@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: lake
+    description: Parquet files produced by ingestion/csv_to_parquet.py
+    meta:
+      external_location: "../data/lake/{name}.parquet"
+    tables:
+      - name: aisles
+      - name: departments
+      - name: products
+      - name: orders
+      - name: order_products_prior
+      - name: order_products_train

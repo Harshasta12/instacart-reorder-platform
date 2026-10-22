@@ -1,0 +1,16 @@
+name: instacart
+version: "1.0.0"
+config-version: 2
+profile: instacart
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  instacart:
+    staging:
+      +materialized: table
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table

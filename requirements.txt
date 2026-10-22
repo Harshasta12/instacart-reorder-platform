@@ -1,0 +1,13 @@
+duckdb>=1.0
+pyarrow>=15.0
+pandas>=2.2
+dbt-core>=1.8
+dbt-duckdb>=1.8
+lightgbm>=4.3
+scikit-learn>=1.4
+gensim>=4.3
+mlflow>=2.12
+fastapi>=0.111
+uvicorn>=0.29
+evidently>=0.4
+streamlit>=1.34

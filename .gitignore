@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+data/raw/
+data/lake/
+*.duckdb
+*.duckdb.wal
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dbt_packages/
+mlruns/
+.env
+mlflow.db
+mlartifacts/
+setup_project.py
+raw data/
+.user.yml
+/models/

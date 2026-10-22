@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Product dimension with aisle and department.
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+
+  - name: fct_order_items
+    description: Order-line fact table (one row per product in an order).
+    columns:
+      - name: order_id
+        tests: [not_null]
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+  - name: mart_product_performance
+    description: Per-product order volume, buyers and reorder rate.
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+      - name: reorder_rate
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 1
