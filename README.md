@@ -218,6 +218,26 @@ python -m uvicorn ml.serving.app:app --port 8000
 Open `http://localhost:8000/docs` to explore the API.
 
 > **Note:** Run commands from the repository root unless otherwise specified. The exact Python version, file paths, and dependency versions should match the project's implementation and configuration.
+> ## What is what
+
+| Tool | Role in this project |
+|---|---|
+| [DuckDB](https://duckdb.org) | Fast local analytical database; holds the warehouse |
+| [dbt](https://www.getdbt.com) | SQL transformations plus data tests (staging, intermediate, marts) |
+| [LightGBM](https://lightgbm.readthedocs.io) | Gradient-boosted model that predicts reorders |
+| [MLflow](https://mlflow.org) | Experiment tracking: parameters, metrics and model for every training run |
+| [FastAPI](https://fastapi.tiangolo.com) | Serves the trained model as a REST API |
+
+## View the experiments (MLflow)
+
+Every training run is logged to a local MLflow store (`mlflow.db`). To browse runs and compare `lgbm-baseline` with `lgbm-v2`:
+
+```bash
+python -m mlflow ui
+# open http://localhost:5000 -> Model training tab -> instacart-reorder
+```
+
+MLflow and the API run locally (ports 5000 and 8000), so those addresses work only on your own machine after you start the servers. Screenshots above show what they look like.
 
 ## Roadmap
 
